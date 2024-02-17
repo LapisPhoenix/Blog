@@ -6,7 +6,7 @@ fetchLatestBlogs = () => {
         .then(files => {
             const message = files.message();
             if (message) {
-                if (message === "This repository is empty.") {
+                if (message === "This repository is empty." || message === "Not Found") {
                     // Let the user know that there are no blogs
                     console.log("No blogs found");
                     return;
