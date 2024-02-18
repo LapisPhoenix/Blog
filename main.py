@@ -13,7 +13,8 @@ html_template_head = """
   <link rel="icon" href="../images/icon.ico" type="image/x-icon">
   <title>ECS - Blog</title>
 </head>
-<body>"""
+<body>
+<div class="container">"""
 
 
 def convert_markdown_to_html(file):
@@ -36,7 +37,7 @@ def convert_markdown_to_html(file):
 
 
 def create_html_file(html, file, title, description, date):
-    html_string = f"<!-- {title} -->\n<!-- {description} -->\n<!-- {date} -->" + html_template_head + html + "</body></html>"
+    html_string = f"<!-- {title} -->\n<!-- {description} -->\n<!-- {date} -->" + html_template_head + html + "</div></body></html>"
     with open(f"./output/{file}.html", 'w') as f:
         f.write(html_string)
 

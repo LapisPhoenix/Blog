@@ -47,7 +47,9 @@ html {
 }
 
 .blog a:hover {
+    color: #000;
     text-decoration: underline;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .hidden {
