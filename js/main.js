@@ -31,14 +31,20 @@ fetchLatestBlogs = () => {
                 }).then(blog => {
                     const title = blog
                         .split("\n")[0]
+                        .replace("<!-- ", "")
+                        .replace(" -->", "")
                         .trim()
                         .split("title: ")[1];
                     const description = blog
                         .split("\n")[1]
+                        .replace("<!-- ", "")
+                        .replace(" -->", "")
                         .trim()
                         .split("description: ")[1];
                     const date = blog
                         .split("\n")[2]
+                        .replace("<!-- ", "")
+                        .replace(" -->", "")
                         .trim()
                         .split("date: ")[1];
 

@@ -19,14 +19,20 @@ html_template_head = """
 def convert_markdown_to_html(file):
     with open(file, 'r') as f:
         text = f.read()
+        # The first 3 lines are the title, description and date, we need to save them.
+        # Then we remove them from the text.
+        title = text.split("\n")[0]
+        description = text.split("\n")[1]
+        date = text.split("\n")[2]
         html = markdown.markdown(text)
-        html = bs(html)
+        html = bs(html, 'html.parser')
         html = html.prettify()
-        return html
+
+        return html, title, description, date
 
 
-def create_html_file(html, file):
-    html_string = html_template_head + html + "</body></html>"
+def create_html_file(html, file, title, description, date):
+    html_string = f"<!-- {title} -->\n<!-- {description} -->\n<!-- {date} -->" + html_template_head + html + "</body></html>"
     with open(f"./output/{file}.html", 'w') as f:
         f.write(html_string)
 
@@ -37,8 +43,8 @@ def main():
     f = 0
     for file in files:
         start = time.time()
-        html = convert_markdown_to_html(f'./input/{file}')
-        create_html_file(html, file.replace(".md", ""))
+        html, title, desc, date = convert_markdown_to_html(f'./input/{file}')
+        create_html_file(html, file.replace(".md", ""), title, desc, date)
         print(f"File {file} converted in {time.time() - start} seconds")
         f += 1
 
