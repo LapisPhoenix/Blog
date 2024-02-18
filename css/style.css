@@ -1,0 +1,56 @@
+@font-face {
+  font-family: 'Kode Regular';
+  src: url('../fonts/Kode-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  font-family: 'Kode Regular', monospace;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.blogs {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  flex-direction: column; /* Stack content vertically */
+  padding: 20px;
+}
+
+/* Individual blog post styling */
+.blog {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px 0;
+    max-width: 600px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.blog h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.blog p {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.blog a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.blog a:hover {
+    text-decoration: underline;
+}
+
+.hidden {
+  display: none;
+  font-size: 0;
+}

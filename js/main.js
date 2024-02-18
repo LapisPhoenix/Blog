@@ -1,5 +1,8 @@
 fetchLatestBlogs = () => {
-    const url = 'https://api.github.com/repos/LapisPhoenix/Blog/contents/pages?sort=author-date-asc';
+    const url = 'https://api.github.com/repos/LapisPhoenix/Blog/contents/pages?sort=author-date-a' +
+            'sc';
+    let blog_count = 0;
+    const banned_ext = [".txt", ".md"]; // Used to ignore certain files, used for custom pages
 
     fetch(url)
         .then(resp => resp.json())
@@ -7,8 +10,6 @@ fetchLatestBlogs = () => {
             const message = files.message;
             if (message) {
                 if (message === "This repository is empty." || message === "Not Found") {
-                    // Let the user know that there are no blogs
-                    console.log("No blogs found");
                     return;
                 }
             }
@@ -17,32 +18,75 @@ fetchLatestBlogs = () => {
                 const blogUrl = file.download_url;
                 const blogName = file.name;
 
-                if (blogName.startsWith("IGNORE_")) {
-                    // Skip this blog
+                if (blogName.includes("index") || banned_ext.some(ext => blogName.includes(ext))) {
                     return;
                 }
-                fetch(blogUrl)
-                    .then(resp => resp.text())
-                    .then(blog => {
-                        // Line 1 is the title
-                        const title = blog.split("\n")[0].trim().split("title: ")[1];
-                        // Line 2 is the description
-                        const description = blog.split("\n")[1].trim().split("description: ")[1];
-                        // Line 3 is the date
-                        const date = blog.split("\n")[2].trim().split("date: ")[1];
-                        // The rest is the content
-                        const content = blog.split("\n").slice(3).join("\n").trim();
 
-                        // For now just print the blog
-                        console.log(title);
-                        console.log(description);
-                        console.log(date);
-                        console.log(content);
-                    })
-                    .catch(err => console.error(err));
+                fetch(blogUrl).then(resp => {
+                    console.log(resp)
+                    if (resp.status !== 200) {
+                        return;
+                    }
+                    return resp.text();
+                }).then(blog => {
+                    const title = blog
+                        .split("\n")[0]
+                        .trim()
+                        .split("title: ")[1];
+                    const description = blog
+                        .split("\n")[1]
+                        .trim()
+                        .split("description: ")[1];
+                    const date = blog
+                        .split("\n")[2]
+                        .trim()
+                        .split("date: ")[1];
+
+                    // Add the blog to the page
+                    const blogDiv = document.createElement("div");
+                    blogDiv
+                        .classList
+                        .add("blog");
+                    blogDiv.innerHTML = `
+                            <h2>${title}</h2>
+                            <p>${description}</p>
+                            <p>${date}</p>
+                            <a href="/pages/${blogName}">Read more</a>
+                        `;
+
+                    document
+                        .getElementById("blogs")
+                        .appendChild(blogDiv);
+
+                    blog_count++;
+                }).catch(err => console.error(err));
             })
         })
         .catch(err => console.error(err));
+
+    if (blog_count === 0) {
+        // debug("No blogs found")
+        const blogDiv = document.createElement("div");
+        blogDiv
+            .classList
+            .add("blog");
+        blogDiv.innerHTML = `
+            <h2>No blogs found</h2>
+            <p>There are no blogs to display at the moment, Try again later!</p>
+        `;
+        document
+            .getElementById("blogs")
+            .appendChild(blogDiv);
+    }
 };
 
-fetchLatestBlogs();
+debug = (message) => {
+    console.log(`DEBUG - ${message}`);
+};
+
+main = () => {
+    fetchLatestBlogs();
+};
+
+// Execute the main function
+main();
