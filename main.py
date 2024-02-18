@@ -24,6 +24,12 @@ def convert_markdown_to_html(file):
         title = text.split("\n")[0]
         description = text.split("\n")[1]
         date = text.split("\n")[2]
+
+        text = text.replace(title, "")
+        text = text.replace(description, "")
+        text = text.replace(date, "")
+        text = text.replace('../../', "https://raw.githubusercontent.com/LapisPhoenix/Blog/main/")
+        text = text.replace("../", "https://raw.githubusercontent.com/LapisPhoenix/Blog/main/")
         html = markdown.markdown(text)
         html = bs(html, 'html.parser')
         html = html.prettify()
