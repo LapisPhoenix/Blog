@@ -12,12 +12,17 @@ html {
   color: #333;
 }
 
-.blogs {
+h1,h2 {
+  text-align: center;
+}
+
+#blogs {
   display: flex;
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
   flex-direction: column; /* Stack content vertically */
   padding: 20px;
+  
 }
 
 /* Individual blog post styling */
@@ -26,8 +31,10 @@ html {
     border: 1px solid #ddd;
     padding: 20px;
     margin: 20px 0;
-    max-width: 600px;
+    width: 600px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    
 }
 
 .blog h2 {
