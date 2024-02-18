@@ -9,8 +9,8 @@ html_template_head = """
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/LapisPhoenix/Blog/main/css/style.css">
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <link rel="icon" href="../images/icon.ico" type="image/x-icon">
   <title>ECS - Blog</title>
 </head>
 <body>"""
@@ -28,8 +28,6 @@ def convert_markdown_to_html(file):
         text = text.replace(title, "")
         text = text.replace(description, "")
         text = text.replace(date, "")
-        text = text.replace('../../', "https://raw.githubusercontent.com/LapisPhoenix/Blog/main/")
-        text = text.replace("../", "https://raw.githubusercontent.com/LapisPhoenix/Blog/main/")
         html = markdown.markdown(text)
         html = bs(html, 'html.parser')
         html = html.prettify()
