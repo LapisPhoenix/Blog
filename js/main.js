@@ -57,7 +57,7 @@ fetchLatestBlogs = async () => {
                     <h2>${title}</h2>
                     <p>${description}</p>
                     <p>${date}</p>
-                    <a href="/pages/${blogName}">Read more</a>
+                    <a href="Blog/pages/${blogName}">Read more</a>
                 `;
 
             document
