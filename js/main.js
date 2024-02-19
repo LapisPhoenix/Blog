@@ -88,11 +88,30 @@ fetchLatestBlogs = async () => {
 };
 
 
+getLastUpdated = async () => {
+    const url = 'https://api.github.com/repos/LapisPhoenix/Blog';
+
+    fetch(url)
+        .then(response => response.json())
+        .then (data => {
+            const lastUpdated = data.updated_at.toString().split("T")[0];
+            const lastUpdatedDiv = document.getElementById("update");
+            lastUpdatedDiv.innerHTML = `Last updated: ${lastUpdated}`;
+        })
+        .catch(err => {
+            console.error("Error fetching last updated date: ", err);
+            const lastUpdatedDiv = document.getElementById("update");
+            lastUpdatedDiv.innerHTML = "Last updated: Error fetching last updated date";
+        })
+};
+
+
 debug = (message) => {
     console.log(`DEBUG - ${message}`);
 };
 
 main = async () => {
+    await getLastUpdated();
     await fetchLatestBlogs();
 };
 
