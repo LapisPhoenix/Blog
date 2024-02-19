@@ -96,7 +96,7 @@ getLastUpdated = async () => {
         .then (data => {
             const lastUpdated = data.updated_at.toString().split("T")[0];
             const lastUpdatedDiv = document.getElementById("update");
-            lastUpdatedDiv.innerHTML = `Last updated: ${lastUpdated}`;
+            lastUpdatedDiv.innerHTML = `Last updated: ${lastUpdated} (YYYY-MM-DD)`;
         })
         .catch(err => {
             console.error("Error fetching last updated date: ", err);
@@ -115,6 +115,6 @@ main = async () => {
     await fetchLatestBlogs();
 };
 
-// Execute the main function
 
+// Execute the main function
 main();
