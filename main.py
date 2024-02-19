@@ -18,7 +18,7 @@ html_template_head = """
 
 
 def convert_markdown_to_html(file):
-    with open(file, 'r') as f:
+    with open(file, 'r', encoding='utf-8') as f:
         text = f.read()
         # The first 3 lines are the title, description and date, we need to save them.
         # Then we remove them from the text.
