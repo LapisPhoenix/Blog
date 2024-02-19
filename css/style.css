@@ -17,6 +17,10 @@ h1,h2,h3 {
   text-align: center;
 }
 
+ a{
+  text-decoration: none;
+}
+
 .banner {
   /* Bold Text, Red Background, White Text */
   font-weight: bold;
