@@ -3,69 +3,65 @@
 <!-- date: 2-18-2024 -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="../css/blog.css">
-  <link rel="icon" href="../images/icon.ico" type="image/x-icon">
-  <title>ECS - Blog</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../css/blog.css">
+    <link rel="icon" href="../images/icon.ico" type="image/x-icon">
+    <title>ECS - Blog</title>
 </head>
+
 <body>
-<div class="container"><h1>
- Fractals!
-</h1>
-<p>
- What are fractals, how they work, and some examples.
-</p>
-<hr/>
-<h2>
- What is a fractal?
-</h2>
-<p>
- Fractals are often described as a never-ending pattern. They are infinitely complex, that are
- <em>
+    <div class="container">
+        <h1>
+            Fractals!
+        </h1>
+        <p>
+            What are fractals, how they work, and some examples.
+        </p>
+        <hr/>
+        <h2>
+            What is a fractal?
+        </h2>
+        <p>
+            Fractals are often described as a never-ending pattern. They are infinitely complex, that are
+            <em>
   self-similar
- </em>
- at scale. They are created by repeating 1 simple shape or image over and over again. This simple action can lead to very complex fractals depending on the original shape. Often described as a dynamic system, they center around recursion, something that repeats given a rule (or rule-set). Because of the nature of these fractals, they inhibit behavior not often found else where. For example, because we're repeating the same shape, for 2 times the edge length of the shape there is
- <strong>
+ </em> at scale. They are created by repeating 1 simple shape or image over and over again. This simple action can lead to very complex fractals depending on the original shape. Often described as a dynamic system, they center around recursion, something that repeats given a rule (or rule-set). Because of the nature of these fractals, they inhibit behavior not often found else where. For example, because we're repeating the same shape, for 2 times the edge length of the shape there is
+            <strong>
   <em>
    4 times
   </em>
- </strong>
- has much area created! Also because of the nature of fractals, we can infinitely zoom into them and continue gain detail.
-</p>
-<p>
- Many people have seen fractals without realizing it, including what is most likely the first fractal to ever be seen by man, the snowflake. Snowflakes are a perfect example of fractals in nature, depending on your luck, some snowflakes looked at microscopically show their complex fractal-like patterns. For a less time sensitive example, we can look at the
- <strong>
+ </strong> has much area created! Also because of the nature of fractals, we can infinitely zoom into them and continue gain detail.
+        </p>
+        <p>
+            Many people have seen fractals without realizing it, including what is most likely the first fractal to ever be seen by man, the snowflake. Snowflakes are a perfect example of fractals in nature, depending on your luck, some snowflakes looked at microscopically show their complex fractal-like patterns. For a less time sensitive example, we can look at the
+            <strong>
   Koch snowflake
- </strong>
- .
-</p>
-<p>
- <img alt="Koch Snowflake Example" src="../images/koch_snowflake.jpg"/>
-</p>
-<p>
- The Koch snowflake starts simple, with just a single triangle. Then in the next iterations, the triangle is scaled down by 1/3. You do this 3 times, placing each triangle on the original triangle, just on a new side without a smaller triangle on it. Repeating this forever, you'll see it makes a snowflake-like shape! A more mathematic explanation can be found
- <a href="https://larryriddle.agnesscott.org/ifs/ksnow/ksnow.htm">
+ </strong> .
+        </p>
+        <p>
+            <img alt="Koch Snowflake Example" src="../images/koch_snowflake.jpg" />
+        </p>
+        <p>
+            The Koch snowflake starts simple, with just a single triangle. Then in the next iterations, the triangle is scaled down by 1/3. You do this 3 times, placing each triangle on the original triangle, just on a new side without a smaller triangle on it. Repeating this forever, you'll see it makes a snowflake-like shape! A more mathematic explanation can be found
+            <a href="https://larryriddle.agnesscott.org/ifs/ksnow/ksnow.htm">
   here
- </a>
- .  Why don't we try making our own fractals using
- <a href="https://www.python.org">
+ </a> . Why don't we try making our own fractals using
+            <a href="https://www.python.org">
   Python
- </a>
- ! Using equation z = z^2 + c we can make the famous Mandelbrot Set.
-</p>
-<p>
- We will be using two libraries to make our fractals,
- <code>
+ </a> ! Using equation z = z^2 + c we can make the famous Mandelbrot Set.
+        </p>
+        <p>
+            We will be using two libraries to make our fractals,
+            <code>
   matplotlib
- </code>
- &amp;
- <code>
+ </code> &amp;
+            <code>
   numpy
- </code>
- .
-</p>
- <pre>
+ </code> .
+        </p>
+        <pre>
    <code>
 import matplotlib.pyplot as plt
 import numpy as np
@@ -134,79 +130,89 @@ if __name__ == "__main__":
     main()
  </code>
   </pre>
-<p>
- If you're interested in how it works, the comments should explain everything. But lets look at the results of the program!
-</p>
-<p>
- <img alt="mandelbrot" src="../images/mandelbrot.png"/>
-</p>
-<p>
- If you dont want to run python code, here are some fun fractal explorers that you can run in your web browser:
-</p>
-  <ul>
-    <li>
-      <a href="https://mandelbrot.page/">Mandelbrot Explorer</a>
-    </li>
-    <li>
-      <a href="https://fractals.cc/">Fractals.cc</a>
-    </li>
-  </ul>
-<p>
- I recommend Fractals.cc, its really fun.
-</p>
-  <hr/>
-<h2>
- A (very) short history of Fractals
-</h2>
-<ol>
- <li>
-  <p>
-   <strong>
+        <p>
+            If you're interested in how it works, the comments should explain everything. But lets look at the results of the program!
+        </p>
+        <p>
+            <img alt="mandelbrot" src="../images/mandelbrot.png" />
+        </p>
+        <p>
+            If you dont want to run python code, here are some fun fractal explorers that you can run in your web browser:
+        </p>
+        <ul>
+            <li>
+                <a href="https://mandelbrot.page/">Mandelbrot Explorer</a>
+            </li>
+            <li>
+                <a href="https://fractals.cc/">Fractals.cc</a>
+            </li>
+        </ul>
+        <p>
+            I recommend Fractals.cc, its really fun.
+        </p>
+        <hr/>
+        <h2>
+            A (very) short history of Fractals
+        </h2>
+        <ol>
+            <li>
+                <p>
+                    <strong>
     17th Century
-   </strong>
-   : The journey of fractals began with notions of recursion. Mathematicians explored recursive processes, laying the groundwork for understanding complex patterns. However, it wasn't until later that the concept of fractals truly took shape.
-  </p>
- </li>
- <li>
-  <p>
-   <strong>
+   </strong> : The journey of fractals began with notions of recursion. Mathematicians explored recursive processes, laying the groundwork for understanding complex patterns. However, it wasn't until later that the concept of fractals truly took shape.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <strong>
     19th Century
-   </strong>
-   : In the 19th century, mathematicians like Bernard Bolzano, Bernhard Riemann, and Karl Weierstrass delved into the study of continuous but not differentiable functions. These functions paved the way for the exploration of fractals. Notably, they worked on mathematical systems that exhibited intricate behavior, even though their derivatives were undefined.
-  </p>
- </li>
- <li>
-  <p>
-   <strong>
+   </strong> : In the 19th century, mathematicians like Bernard Bolzano, Bernhard Riemann, and Karl Weierstrass delved into the study of continuous but not differentiable functions. These functions paved the way for the exploration of fractals. Notably, they worked on mathematical systems that exhibited intricate behavior, even though their derivatives were undefined.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <strong>
     20th Century
-   </strong>
-   : The term "fractal" was officially coined by the mathematician Benoit Mandelbrot in 1975. Mandelbrot extended the concept of theoretical fractional dimensions to geometric patterns found in nature. His groundbreaking work revolutionized our understanding of fractals and their applications.
-  </p>
- </li>
-</ol>
-<p>
- <strong>
+   </strong> : The term "fractal" was officially coined by the mathematician Benoit Mandelbrot in 1975. Mandelbrot extended the concept of theoretical fractional dimensions to geometric patterns found in nature. His groundbreaking work revolutionized our understanding of fractals and their applications.
+                </p>
+            </li>
+        </ol>
+        <p>
+            <strong>
   Mandelbrot
- </strong>
- Set: Perhaps the most famous fractal, the Mandelbrot set, showcases intricate self-similarity. Its boundary forms a complex, infinitely detailed curve. Zooming into the Mandelbrot set reveals mesmerizing structures at various scales.
-</p>
-<p>
- <strong>
+ </strong> Set: Perhaps the most famous fractal, the Mandelbrot set, showcases intricate self-similarity. Its boundary forms a complex, infinitely detailed curve. Zooming into the Mandelbrot set reveals mesmerizing structures at various scales.
+        </p>
+        <p>
+            <strong>
   Fractal Dimension
- </strong>
- : Unlike conventional dimensions, fractal dimensions are not necessarily integers. They describe how efficiently a fractal fills space. For instance, an infinite fractal curve can wind through space more efficiently than an ordinary line, even though both are topologically 1-dimensional.
-</p>
-<p>
- <strong>
+ </strong> : Unlike conventional dimensions, fractal dimensions are not necessarily integers. They describe how efficiently a fractal fills space. For instance, an infinite fractal curve can wind through space more efficiently than an ordinary line, even though both are topologically 1-dimensional.
+        </p>
+        <p>
+            <strong>
   Nowhere Differentiable
- </strong>
- : Many fractals are nowhere differentiable. Analytically, they challenge traditional notions of smoothness. For example, the Sierpinski carpet exhibits self-similarity while being nowhere differentiable.
-</p>
-<hr/>
-<h1>
- Conclusion
-</h1>
-<p>
- Fractals are very interesting part of nature &amp; math, and could possibly explain some of the mysteries of the universe!
-</p>
-</div></body></html>
+ </strong> : Many fractals are nowhere differentiable. Analytically, they challenge traditional notions of smoothness. For example, the Sierpinski carpet exhibits self-similarity while being nowhere differentiable.
+        </p>
+        <hr/>
+        <h1>
+            Conclusion
+        </h1>
+        <p>
+            Fractals are very interesting part of nature &amp; math, and could possibly explain some of the mysteries of the universe!
+        </p>
+        <footer>
+            <hr> 56
+            <p>Extra Computer Science</p>
+            <p>
+                <a href="https://discord.com/users/1143663560468205628" target="_blank">
+                    <img src="images/discord.png" alt="Discord">
+                </a>
+
+                <a href="https://github.com/LapisPhoenix/Blog" target="_blank">
+                    <img src="images/github.png" alt="GitHub">
+                </a>
+            </p>
+        </footer>
+    </div>
+</body>
+
+</html>;

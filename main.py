@@ -4,19 +4,6 @@ import markdown
 from bs4 import BeautifulSoup as bs
 
 
-html_template_head = """
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="../css/blog.css">
-  <link rel="icon" href="../images/icon.ico" type="image/x-icon">
-  <title>ECS - Blog</title>
-</head>
-<body>
-<div class="container">"""
-
-
 def convert_markdown_to_html(file):
     with open(file, 'r', encoding='utf-8') as f:
         text = f.read()
@@ -30,16 +17,47 @@ def convert_markdown_to_html(file):
         text = text.replace(description, "")
         text = text.replace(date, "")
         html = markdown.markdown(text)
-        html = bs(html, 'html.parser')
-        html = html.prettify()
 
         return html, title, description, date
 
 
 def create_html_file(html, file, title, description, date):
-    html_string = f"<!-- {title} -->\n<!-- {description} -->\n<!-- {date} -->" + html_template_head + html + "</div></body></html>"
+    html_string = f"""<!-- {title} -->
+<!-- {description} -->
+<!-- {date} -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../css/blog.css">
+  <link rel="icon" href="../images/icon.ico" type="image/x-icon">
+  <title>ECS - Blog</title>
+</head>
+<body>
+<div class="container">
+{html}
+
+  <footer>
+    <hr>
+    <p>Extra Computer Science</p>
+    <p>
+      <a href="https://discord.com/users/1143663560468205628" target="_blank">
+        <img src="images/discord.png" alt="Discord">
+      </a>
+       
+      <a href="https://github.com/LapisPhoenix/Blog" target="_blank">
+        <img src="images/github.png" alt="GitHub">
+      </a>
+    </p>
+  </footer>
+</div>
+</body>
+</html>
+
+"""
     with open(f"./output/{file}.html", 'w') as f:
-        f.write(html_string)
+        s = bs(html_string, "html.parser")
+        f.write(s.prettyify())
 
 
 def main():

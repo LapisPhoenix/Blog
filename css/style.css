@@ -74,3 +74,16 @@ h1,h2,h3 {
   display: none;
   font-size: 0;
 }
+
+footer {
+  text-align: center;
+  padding: 3px;
+}
+
+footer img {
+  height: 50px;
+  margin: 10px;
+  text-decoration: none;
+  /* Remove default underline */
+  border: none;
+}
