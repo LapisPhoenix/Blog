@@ -42,11 +42,11 @@ def create_html_file(html, file, title, description, date):
     <p>Extra Computer Science</p>
     <p>
       <a href="https://discord.com/users/1143663560468205628" target="_blank">
-        <img src="images/discord.png" alt="Discord">
+        <img src="../images/discord.png" alt="Discord">
       </a>
        
       <a href="https://github.com/LapisPhoenix/Blog" target="_blank">
-        <img src="images/github.png" alt="GitHub">
+        <img src="../images/github.png" alt="GitHub">
       </a>
     </p>
   </footer>
